@@ -8,7 +8,7 @@
 <header class="main__header">
     <nav class="main__navigation">
         <a class="main__header-logo">
-            <img src="Image/index-logo.svg" alt="Логотип барбершопа Бородинский" width="368" height="153">
+            <img src="../Image/index-logo.svg" alt="Логотип барбершопа Бородинский" width="368" height="153">
         </a>
          <ul class="site__navigation">
             <li><a href="info.html">Информация</a></li>
@@ -18,7 +18,9 @@
             <li><a href="contacts.html">Контакты</a></li>
         </ul>
         <ul class="user__navigation">
-            <li class="login__link">Вход</li>
+            <li class="login__link">
+                <a class="login__link" href="login.html">Вход</a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -63,11 +65,11 @@
         <h2>Фотогалерея</h2>
         <figure class="gallery__content">
             <a href="#">
-                <img src="Image/studio.jpg" alt="Интерьер" width="286" height="164">
+                <img src="../Image/WorkPlace.jpg" alt="Интерьер" width="286" height="164">
             </a>
         </figure>
-        <span class="button gallery__button gallery__button-back">Назад</span>
-        <span class="button gallery__button gallery__button-next">Вперед</span>
+        <button class="button gallery__button gallery__button-back">Назад</button>
+        <button class="button gallery__button gallery__button-next">Вперед</button>
     </section>
     <section class="contacts">
         <h2>Контактная информация</h2>
@@ -84,7 +86,25 @@
     <section class="appointment">
         <h2>Записаться</h2>
         <p class="appointment__info">Укажите дату и время и мы свяжемся с вами для подтверждения брони</p>
-        <!--Здесь будет форма-->
+        <form action="#" class="appointment__form" method="post">
+            <p class="appointment__item">
+                <label for="appointment__date">Дата</label>
+                <input id="appointment__date" type="text" name="date"  value="" placeholder="08.10.2019">
+            </p>
+            <p class="appointment__item">
+                <label for="appointment__time">Время</label>
+                <input id="appointment__time" type="text" name="time" value="" placeholder="10:00">
+            </p>
+            <p class="appointment__item">
+                <label for="appointment__name">Ваше имя</label>
+                <input id="appointment__name" type="text" name="name" value="" placeholder="Борода">
+            </p>
+            <p class="appointment__item">
+                <label for="appointment__phone">Телефон</label>
+                <input id="appointment__phone" type="tel" name="phone" value="" placeholder="+7 123 456-78-90">
+            </p>
+            <button class="button" type="submit">Отправить</button>
+        </form>
     </section>
 </main>
 <footer class="main__footer">
@@ -110,12 +130,31 @@
 <section class="modal modal__login">
     <h2>Личный кабинет</h2>
     <p>Введите свой логин и пароль</p>
-    <!--Здесь будет форма-->
-    <span class="modal__close">x</span>
+    <form action="#" class="login__form" method="post">
+        <p>
+            <label for="user__login" class="vissualy-hidden">Логин</label>
+            <input id="user__login" type="text" class="login__icon-user" name="login" placeholder="Логин">
+        </p>
+        <p>
+            <label for="user__password" class="vissualy-hidden">Пароль</label>
+            <input id="user__password" type="password" class="login__icon-passowrd" name="password" placeholder="Пароль">
+        </p>
+        <p class="login__password--info">
+            <input id="login__password-info" type="checkbox" class="visually-hidden" name="remember">
+        <label for="login__password-info">Запомните меня</label>
+        <a href="#" class="restore">Я забыл пароль!</a>
+        </p>
+        <button class="button" type="submit">Войти</button>
+    </form>
+    <button class="modal__close" type="button">Закрыть</button>
 </section>
 <section class="modal modal__map">
     <h2 class="visually-hidden">Как до нас добраться</h2>
-    <span class="modal__close">x</span>
+    <p>
+         <img src="../Image/map.png" alt="Офис компании по адресу ул.Большая Конюшенная 19/8, Санкт-Петербург"
+            width="766" height="560">
+    </p>
+    <button class="modal__close" type="button">Закрыть</button>
 </section>
 </body>
 </html>
