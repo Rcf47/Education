@@ -5,10 +5,15 @@ import {
   Heading,
   Image,
   useColorModeValue,
-  Link
+  Link,
+  chakra
 } from '@chakra-ui/react'
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
+
+const ProfileImage = chakra(Image, {
+  shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
+})
 
 const Page = () => {
   return (
@@ -35,16 +40,24 @@ const Page = () => {
           ml={{ md: 6 }}
           align="center"
         >
-          <Image
+          <Box
             borderColor="whiteAlpha.800"
             borderWidth={2}
             borderStyle="solid"
-            maxWidth="100px"
+            w="100px"
+            h="100px"
             display="inline-block"
             borderRadius="full"
-            src="/images/vadim-min.png"
-            alt="Profile Image"
-          />
+            overflow="hidden"
+          >
+            <ProfileImage
+              src="/images/vadim-min.png"
+              alt="Profile Image"
+              borderRadius="full"
+              width="100"
+              height="100"
+            />
+          </Box>
         </Box>
       </Box>
       <Section delay={0.1}>
@@ -53,9 +66,9 @@ const Page = () => {
         </Heading>
         <Paragraph>
           Dev as lifestyle{' '}
-          <NextLink href="/works/inkdrop">
-            <Link>Inkdrop</Link>
-          </NextLink>
+          <Link as={NextLink} href="/works/inkdrop" passHref scroll={false}>
+            Inkdrop
+          </Link>
         </Paragraph>
       </Section>
     </Container>
